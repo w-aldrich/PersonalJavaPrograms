@@ -1,0 +1,27 @@
+Title:
+Eggs and Bacon
+Ingredients:
+Eggs
+Bacon
+Avocado
+Garlic Salt
+Paprika
+SeasonAll
+Toast
+Recipe:
+Cook up the bacon and save some of the grease once the bacon is done.
+Season the avocado with the spices to taste. Toast the toast.
+Cook your eggs your preferred way.
+Once the eggs and toast are done, put the avocado on the toast and top with your egg!
+Title:
+Frittatas
+Ingredients:
+blah
+Recipe:
+blah
+Title:
+Waffles/Pancakes and Eggs
+Ingredients:
+blah
+Recipe:
+blah
