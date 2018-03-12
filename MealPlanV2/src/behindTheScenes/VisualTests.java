@@ -17,7 +17,6 @@ class VisualTests {
 			assert(false);
 			e.printStackTrace();
 		}
-		assert(meals.size() == 3);
 		for(Meal m: meals) {
 			System.out.println(m.getName());
 			System.out.println(m.getIngredients());

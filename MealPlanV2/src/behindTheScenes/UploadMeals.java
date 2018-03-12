@@ -63,12 +63,13 @@ public class UploadMeals {
 				newMeal.setName(nextLine);
 				nameFlag = false;
 			} else if (ingredientFlag) {
-				newMeal.addToIngredients(nextLine + " ");
+				newMeal.addToIngredients(nextLine + "\n");
 			} else if (recipeFlag) {
-				newMeal.addToRecipe(nextLine + " ");
+				newMeal.addToRecipe(nextLine + "\n");
 			}
 		}
 		listOfMeals.add(newMeal);
+		s.close();
 		return listOfMeals;
 	}
 }
