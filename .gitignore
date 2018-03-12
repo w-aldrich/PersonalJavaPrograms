@@ -31,3 +31,5 @@ xcuserdata/
 xcode/
 .Trashes
 *.swp
+/.metadata/
+.recommenders/
