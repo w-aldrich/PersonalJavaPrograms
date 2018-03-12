@@ -5,30 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UploadMeals {
+public class FileManipulation {
 	
-	public ArrayList<Meal> uploadBreakfast(String filename) throws FileNotFoundException {
-		File f = new File(filename);
-		Scanner s = new Scanner(f);
-		ArrayList<Meal> allSnacks = readFromFile(s);
-		return allSnacks;
-	}
-	
-	public ArrayList<Meal> uploadSnack(String filename) throws FileNotFoundException {
-		File f = new File(filename);
-		Scanner s = new Scanner(f);
-		ArrayList<Meal> allSnacks = readFromFile(s);
-		return allSnacks;
-	}
-	
-	public ArrayList<Meal> uploadLunch(String filename) throws FileNotFoundException {
-		File f = new File(filename);
-		Scanner s = new Scanner(f);
-		ArrayList<Meal> allSnacks = readFromFile(s);
-		return allSnacks;
-	}
-	
-	public ArrayList<Meal> uploadDinner(String filename) throws FileNotFoundException {
+	public ArrayList<Meal> uploadFile(String filename) throws FileNotFoundException {
 		File f = new File(filename);
 		Scanner s = new Scanner(f);
 		ArrayList<Meal> allSnacks = readFromFile(s);
