@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.waldrich.timetotarget.NewUser">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="330dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:text="Welcome New User!\nPlease Enter the fields below to get started"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="JohnDoe@email.com"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="99dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Email Address"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText3" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="99dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="User Name"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText4" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="UserName"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="99dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Password"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/editText5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText5" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Confirm Password"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/editText7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText7" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="204dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="64dp"
+        android:text="Submit and Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

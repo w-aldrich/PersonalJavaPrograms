@@ -9,23 +9,6 @@ import org.junit.jupiter.api.Test;
 
 class ManualTesting {
 
-//	@Test
-//	void Visualtest() {
-//		ArrayList<Meal> meals = new ArrayList<>();
-//		FileManipulation upload = new FileManipulation();
-//		try {
-//			meals = upload.uploadFile("MealIdeas/Dinner.txt");
-//		} catch (FileNotFoundException e) {
-//			assert(false);
-//			e.printStackTrace();
-//		}
-//		for(Meal m: meals) {
-//			System.out.println(m.getName());
-//			System.out.println(m.getIngredients());
-//			System.out.println(m.getRecipe());
-//		}
-//	}
-	
 	@Test
 	void testSizes() {
 		FileManipulation upload = new FileManipulation();
@@ -49,6 +32,7 @@ class ManualTesting {
 			assertTrue(breakfastFullList.get(0).getName().equals("Eggs and Bacon"));
 			assertTrue(dinnerFullList.get(0).getName().equals("Coconut Chicken Curry"));
 			assertTrue(soupFullList.get(0).getName().equals("Crockpot Chicken Enchilada Soup"));
+			
 		} catch (FileNotFoundException e) {
 			assert(false);
 			e.printStackTrace();
