@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginScreen" />
-        <activity android:name=".NewUser"></activity>
+        <activity android:name=".NewUser" />
+        <activity android:name=".Calculator"></activity>
     </application>
 
 </manifest>

@@ -9,6 +9,10 @@ import android.widget.EditText;
 
 public class StartScreen extends AppCompatActivity {
 
+    //http://hyperphysics.phy-astr.gsu.edu/hbase/grav.html#bul
+    //http://www.millettsights.com/resources/shooting-tips/mathematics-for-precision-shooters/
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

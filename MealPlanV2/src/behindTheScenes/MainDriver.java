@@ -12,6 +12,8 @@ public class MainDriver {
 			ArrayList<Meal> dinnerFullList = upload.uploadFile("MealIdeas/Dinner.txt");
 			ArrayList<Meal> soupFullList = upload.uploadFile("MealIdeas/Soups.txt");
 			ArrayList<Meal> crockFullList = upload.uploadFile("MealIdeas/CrockPot.txt");
+			
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
