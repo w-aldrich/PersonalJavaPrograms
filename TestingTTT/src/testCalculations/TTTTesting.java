@@ -8,124 +8,112 @@ import org.junit.jupiter.api.Test;
 class TTTTesting {
 
 	double thunderboltCoefficient;
-	double thunderboltWeight;
-	double thunderboltMuzzleVelocity;
+	double thunderboltWeightInGrams;
+	double thunderboltMuzzleVelocityInMetersPerSecond;
 	double thunderboltSightedInYards;
-	double thunderboltExpectedHundredYardDrop;
-	double thunderboltExpectedTwoHundredYardDrop;
+	double thunderboltExpectedHundredYardDropInInches;
+	double thunderboltExpectedTwoHundredYardDropInInches;
 	double thunderboltArea;
-	final double GRAVITY = 9.8;
+	final double GRAVITY = 9.81;
+	final double HEIGHT = 1.73736;
+
+	// 1 Meter = 39.3701 inches
+	// 1 yard = .9144 meter
+	// 1 ft = .33333333 yards
+	// 1 in = .08333333 ft
+	// 5.7 ft = 1.73736
 
 	@Before
 	public void setUp() {
 		thunderboltCoefficient = .139;
-		thunderboltWeight = 40.0;
-		thunderboltMuzzleVelocity = 1255.0;
+		thunderboltWeightInGrams = 40.0;
+		thunderboltMuzzleVelocityInMetersPerSecond = 1255.0;
 		thunderboltSightedInYards = 50.0;
-		thunderboltExpectedHundredYardDrop = 5.5;
-		thunderboltExpectedTwoHundredYardDrop = 43.1;
+		thunderboltExpectedHundredYardDropInInches = -5.5;
+		thunderboltExpectedTwoHundredYardDropInInches = -43.1;
 		thunderboltArea = .22;
 	}
 
 	@Test
-	void testForemTTT1OneHundred() {
+	void testBrandon() {
 		setUp();
 		System.out.println();
-		// This will test the forem using timeToTargetTest1, distance / velocity
-		double drop = dropInInchesForem(100, thunderboltMuzzleVelocity, thunderboltCoefficient, true);
-		if (drop >= (thunderboltExpectedHundredYardDrop - .5) && drop <= (thunderboltExpectedHundredYardDrop + .5)) {
-			System.out.println(drop);
-			System.out.println("Passed testForemTTT1OneHundred thunderbolt within .5");
+		double dropInMeters = brandonsTest(100, thunderboltMuzzleVelocityInMetersPerSecond);
+		double dropInInches = dropInMeters * 39.3701;
+
+		if (dropInInches >= (thunderboltExpectedHundredYardDropInInches - .5)
+				&& dropInInches <= (thunderboltExpectedHundredYardDropInInches + .5)) {
+			System.out.println("Passed Brandon's test: " + dropInInches);
 		} else {
-			System.out.println("Fail testForemTTT1OneHundred thunderbolt");
-			System.out.println(drop);
-			fail("Not within .5 of expected");
+			System.out.println("Failed Brandon's test: " + dropInInches + " Testing against: "
+					+ thunderboltExpectedHundredYardDropInInches);
+			fail("");
 		}
+
+	}
+
+	// Brandon
+	double brandonsTest(double distance, double velocity) {
+		// Equation is...
+		// difference in Y = height + upwards velocity * (time) - 1/2 * gravity * time^2
+		distance *= 0.9144;
+		double timeToTarget = distance / velocity;
+		return HEIGHT - (1 / 2 * GRAVITY * Math.pow(timeToTarget, 2));
 	}
 
 	@Test
-	void testForemTTT2OneHundred() {
+	void testScience() {
 		setUp();
 		System.out.println();
-		// This will test the forem using timeToTargetTest2, (3 * distance) / (velocity
-		// * (1 - .003 * (distance * k)))
-		double drop = dropInInchesForem(100, thunderboltMuzzleVelocity, thunderboltCoefficient, false);
-		if (drop >= (thunderboltExpectedHundredYardDrop - .5) && drop <= (thunderboltExpectedHundredYardDrop + .5)) {
-			System.out.println(drop);
-			System.out.println("Passed testForemTTT2OneHundred thunderbolt within .5");
+		double distance = 100.0;
+		distance *= .09144;
+		double time = distance / thunderboltMuzzleVelocityInMetersPerSecond;
+		double dropInMeters = science(thunderboltMuzzleVelocityInMetersPerSecond, time, thunderboltCoefficient, .89,
+				thunderboltArea, thunderboltWeightInGrams);
+		double dropInInches = dropInMeters * 39.3701;
+
+		if (dropInInches >= (thunderboltExpectedHundredYardDropInInches - .5)
+				&& dropInInches <= (thunderboltExpectedHundredYardDropInInches + .5)) {
+			System.out.println("Passed Science test: " + dropInInches);
 		} else {
-			System.out.println("Fail testForemTTT2OneHundred thunderbolt");
-			System.out.println(drop);
-			fail("Not within .5 of expected");
+			System.out.println("Failed Science test: " + dropInInches + " Testing against: "
+					+ thunderboltExpectedHundredYardDropInInches);
+			fail("");
 		}
 	}
+
+
+	double science(double velocity, double time, double coefficeient, double airDensity, double areaOfBullet,
+			double massOfBullet) {
+		// Equation is...
+		// X = Velocity(time) -
+		// Coefficient(airDensity)(areaOfBullet)(velocity^2)(time^2) / 2 (massOfBullet)
+
+		double firstPart = velocity * time;
+		double secondPart = coefficeient * airDensity * areaOfBullet * Math.pow(velocity, 2) * Math.pow(time, 2);
+		double thirdPart = 2 * massOfBullet;
+
+		return firstPart - (secondPart / thirdPart);
+	}
+	
 
 	@Test
-	void testScienceTTT1OneHundred() {
+	void foremTest() {
 		setUp();
 		System.out.println();
-		double drop = dropInInchesScienceTest1(thunderboltMuzzleVelocity, 100);
-		if (drop >= (thunderboltExpectedHundredYardDrop - .5) && drop <= (thunderboltExpectedHundredYardDrop + .5)) {
-			System.out.println(drop);
-			System.out.println("Passed testScienceTTT1OneHundred thunderbolt within .5");
+		double distance = 100.0;
+		distance *= .09144;
+		double dropInMeters = dropInInchesForem(distance, thunderboltMuzzleVelocityInMetersPerSecond, thunderboltCoefficient);
+		double dropInInches = dropInMeters * 39.3701;
+
+		if (dropInInches >= (thunderboltExpectedHundredYardDropInInches - .5)
+				&& dropInInches <= (thunderboltExpectedHundredYardDropInInches + .5)) {
+			System.out.println("Passed forem test: " + dropInInches);
 		} else {
-			System.out.println("Fail testScienceTTT1OneHundred thunderbolt");
-			System.out.println(drop);
-			fail("Not within .5 of expected");
+			System.out.println("Failed forem test: " + dropInInches + " Testing against: "
+					+ thunderboltExpectedHundredYardDropInInches);
+			fail("");
 		}
-	}
-
-	@Test
-	void testScienceTTT1TwoHundred() {
-		setUp();
-		System.out.println();
-		double drop = dropInInchesScienceTest1(thunderboltMuzzleVelocity, 200);
-		if (drop >= (thunderboltExpectedTwoHundredYardDrop - .5)
-				&& drop <= (thunderboltExpectedTwoHundredYardDrop + .5)) {
-			System.out.println(drop);
-			System.out.println("Passed testScienceTTT1TwoHundred thunderbolt within .5");
-		} else {
-			System.out.println("Fail testScienceTTT1TwoHundred thunderbolt");
-			System.out.println(drop);
-			fail("Not within .5 of expected");
-		}
-	}
-
-	@Test
-	void testScienceTTT2OneHundred() {
-		setUp();
-		System.out.println();
-		double drop = dropInInchesScienceTest2(thunderboltMuzzleVelocity, thunderboltCoefficient, 1.2, thunderboltArea,
-				timeToTargetTest1(100, "yards", thunderboltMuzzleVelocity), thunderboltWeight, 100);
-		if (drop >= (thunderboltExpectedHundredYardDrop - .5) && drop <= (thunderboltExpectedHundredYardDrop + .5)) {
-			System.out.println(drop);
-			System.out.println("Passed testScienceTTT2OneHundred thunderbolt within .5");
-		} else {
-			System.out.println("Fail testScienceTTT2OneHundred thunderbolt");
-			System.out.println(drop);
-			fail("Not within .5 of expected");
-		}
-	}
-
-	double timeToTargetTest1(double distance, String measurement, double velocity) {
-		double ttt = 0.0;
-
-		// Convert to feet for feet per second
-
-		switch (measurement) {
-		case "yards":
-			ttt = distance * 3.0;
-			ttt /= velocity;
-			break;
-		case "meters":
-			ttt = distance * 3.28084;
-			ttt /= velocity;
-			break;
-		default:
-			ttt /= velocity;
-		}
-
-		return ttt;
 	}
 
 	// Forem
@@ -135,6 +123,7 @@ class TTTTesting {
 	}
 
 	// Forem
+	// THIS IS CORRECT
 	double remainingVelocity(double distance, double velocity, double coefficient) {
 		double sqrtVelocity = Math.sqrt(velocity);
 		double disDivCo = distance / coefficient;
@@ -145,30 +134,11 @@ class TTTTesting {
 	}
 
 	// Forem
-	double dropInInchesForem(double distance, double velocity, double coefficient, boolean ttt) {
+	double dropInInchesForem(double distance, double velocity, double coefficient) {
 		double firstPart = 193
 				* (1 - ((.37 * (velocity - remainingVelocity(distance, velocity, coefficient)) / velocity)));
-		if (ttt) {
-			return firstPart * (Math.pow(timeToTargetTest1(distance, "yards", velocity), 2));
-		}
 
 		return firstPart * (Math.pow(timeToTargetTest2(distance, velocity, coefficient), 2));
-	}
-
-	// Science
-	double dropInInchesScienceTest1(double velocity, double distance) {
-		double sqrtHeightGravity = Math.sqrt(2.0 / GRAVITY);
-		return (velocity * sqrtHeightGravity) / distance;
-	}
-
-	double dropInInchesScienceTest2(double velocity, double coefficient, double airDensity, double areaOfBullet,
-			double timeOfFlight, double massOfBullet, double distance) {
-		double firstPart = velocity * timeOfFlight;
-		double secondPart = coefficient * airDensity * areaOfBullet;
-		double velocitySqr = Math.pow(velocity, 2);
-		double timeSqr = Math.pow(timeOfFlight, 2);
-		double thirdPart = 2 * massOfBullet;
-		return (firstPart - secondPart * velocitySqr * timeSqr / thirdPart) / distance;
 	}
 
 }
