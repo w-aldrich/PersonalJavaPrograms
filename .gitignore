@@ -33,3 +33,5 @@ xcode/
 *.swp
 /.metadata/
 .recommenders/
+CallMonitor
+CodingQuestions
